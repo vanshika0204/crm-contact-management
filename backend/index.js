@@ -17,6 +17,8 @@ mongoose.connect("mongodb+srv://sehgalvanshika709:Vanshi29@crm.hthoq.mongodb.net
     useUnifiedTopology: true,
   }
 )
+.then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character

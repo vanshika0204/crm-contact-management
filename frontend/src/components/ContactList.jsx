@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
-  Typography,
   Avatar,
   IconButton,
   Menu,
@@ -88,10 +87,8 @@ export const ContactList = () => {
       sx={{
         p: 3,
         bgcolor: "#f9f9f9",
-        borderRadius: 2,
         boxShadow: 3,
-        maxWidth: "1000px",
-        mx: "auto",
+        maxWidth: "5000px",
         mt: 4,
       }}
     >
@@ -112,7 +109,7 @@ export const ContactList = () => {
           {allContacts.map((contact) => (
             <tr key={contact.id} style={tableRowStyle}>
               <td style={tableCellStyle}>
-                <Link to={`/contact/${contact.id}`}>
+                <Link to={`/contacts/${contact.id}`}>
                   <Avatar
                     src={`${backend_url}${contact.image}`}
                     alt={contact.name}
@@ -129,7 +126,7 @@ export const ContactList = () => {
               <td style={tableCellStyle}>
                 <IconButton
                   onClick={(event) => handleMenuOpen(event, contact.id)}
-                  sx={{ color: "primary.main" }}
+                  sx={{ color: "#212121" }}
                 >
                   <MoreVertIcon />
                 </IconButton>
@@ -145,13 +142,13 @@ export const ContactList = () => {
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={() => handleEdit()}>
+        <MenuItem onClick={handleEdit}>
           <ListItemIcon>
             <EditIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Edit</ListItemText>
         </MenuItem>
-        <MenuItem onClick={() => {handleDelete()}}>
+        <MenuItem onClick={handleDelete}>
           <ListItemIcon>
             <DeleteIcon fontSize="small" />
           </ListItemIcon>

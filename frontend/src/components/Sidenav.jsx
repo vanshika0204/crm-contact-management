@@ -2,21 +2,15 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../AppStore';
 
@@ -85,8 +79,8 @@ export default function Sidenav() {
   const open = useAppStore((state) => state.dopen);
 
   const menuItems = [
-    { text: 'Home', icon: <InboxIcon />, path: '/' },
-    { text: 'Contacts', icon: <InboxIcon />, path: '/contacts' },
+    { text: 'Home', icon: <HomeIcon />, path: '/' },
+    { text: 'Contacts', icon: <ContactsIcon />, path: '/contacts' },
   ];
 
 
@@ -94,11 +88,6 @@ export default function Sidenav() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
-        {/* <DrawerHeader>
-          <IconButton onClick={() => setOpen(!open)}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader> */}
         <Divider />
         <List>
       {menuItems.map((item, index) => (
@@ -110,12 +99,12 @@ export default function Sidenav() {
         >
           <ListItemButton
             sx={{
-              minHeight: 48,
+              height: 200,
               px: 2.5,
               justifyContent: open ? 'initial' : 'center',
-              transition: 'all 0.3s ease-in-out', // Smooth animations
+              transition: 'all 0.3s ease-in-out', 
               '&:hover': {
-                backgroundColor: 'primary.light', // Add hover effect
+                backgroundColor: 'primary.light', 
                 color: 'primary.main',
               },
             }}
@@ -125,7 +114,7 @@ export default function Sidenav() {
                 minWidth: 0,
                 justifyContent: 'center',
                 mr: open ? 3 : 'auto',
-                color: 'inherit', // Ensures hover color applies here too
+                color: 'inherit', 
                 transition: 'color 0.3s ease-in-out',
               }}
             >
@@ -135,7 +124,7 @@ export default function Sidenav() {
               primary={item.text}
               sx={{
                 opacity: open ? 1 : 0,
-                transition: 'opacity 0.3s ease-in-out', // Smooth fade effect
+                transition: 'opacity 0.3s ease-in-out', 
               }}
             />
           </ListItemButton>
